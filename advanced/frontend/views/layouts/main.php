@@ -49,7 +49,7 @@ AppAsset::register($this);
          'items' => [
            ['label' => 'Crear', 'url' => ['#']],
            ['label' => 'Modificar', 'url' => ['#']],
-           ['label' => 'Configurar', 'url' => ['#']],
+           ['label' => 'Asignar historias de usuario', 'url' => ['#']],
          ]
        ],
        ['label' => 'Control de avance', 'url' => ['#'],
