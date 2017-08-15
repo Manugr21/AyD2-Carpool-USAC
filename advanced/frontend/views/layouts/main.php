@@ -42,14 +42,14 @@ AppAsset::register($this);
            ['label' => 'Crear', 'url' => ['#']],
            ['label' => 'Eliminar', 'url' => ['#']],
            ['label' => 'Modificar', 'url' => ['#']],
-           ['label' => 'Backlog', 'url' => ['#']],
+           ['label' => 'Backlog', 'url' => ['/historia/index']],
          ]
         ],
         ['label' => 'Sprint Backlog', 'url' => ['/sprint-backlog/index'],
          'items' => [
            ['label' => 'Lista', 'url' => ['/sprint-backlog/index']],
            ['label' => 'Crear', 'url' => ['/sprint-backlog/create']],
-           ['label' => 'Asignar historias de usuario', 'url' => ['#']],
+           ['label' => 'Asignar historias de usuario', 'url' => ['/a/index']],
          ]
        ],
        ['label' => 'Control de avance', 'url' => ['#'],
