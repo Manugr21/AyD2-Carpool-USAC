@@ -45,10 +45,10 @@ AppAsset::register($this);
            ['label' => 'Backlog', 'url' => ['#']],
          ]
         ],
-        ['label' => 'Sprint Backlog', 'url' => ['#'],
+        ['label' => 'Sprint Backlog', 'url' => ['/sprint-backlog/index'],
          'items' => [
-           ['label' => 'Crear', 'url' => ['#']],
-           ['label' => 'Modificar', 'url' => ['#']],
+           ['label' => 'Lista', 'url' => ['/sprint-backlog/index']],
+           ['label' => 'Crear', 'url' => ['/sprint-backlog/create']],
            ['label' => 'Asignar historias de usuario', 'url' => ['#']],
          ]
        ],
