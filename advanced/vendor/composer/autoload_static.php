@@ -29,6 +29,10 @@ class ComposerStaticInit7e2bca6a7ad2fb4481bca401a2f2aefe
         array (
             'phpDocumentor\\Reflection\\' => 25,
         ),
+        'd' => 
+        array (
+            'dosamigos\\datepicker\\' => 21,
+        ),
         'c' => 
         array (
             'cebe\\markdown\\' => 14,
@@ -109,6 +113,10 @@ class ComposerStaticInit7e2bca6a7ad2fb4481bca401a2f2aefe
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+        ),
+        'dosamigos\\datepicker\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/2amigos/yii2-date-picker-widget',
         ),
         'cebe\\markdown\\' => 
         array (
