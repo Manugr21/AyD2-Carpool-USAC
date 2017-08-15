@@ -49,7 +49,7 @@ AppAsset::register($this);
          'items' => [
            ['label' => 'Lista', 'url' => ['/sprint-backlog/index']],
            ['label' => 'Crear', 'url' => ['/sprint-backlog/create']],
-           ['label' => 'Asignar historias de usuario', 'url' => ['/a/index']],
+           ['label' => 'Asignar historias de usuario', 'url' => ['/asignacion-sprint/index']],
          ]
        ],
        ['label' => 'Control de avance', 'url' => ['#'],

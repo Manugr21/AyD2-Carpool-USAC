@@ -2,6 +2,9 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use dosamigos\datepicker\DatePicker;
+use yii\helpers\ArrayHelper;
+use frontend\models\Proyecto;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Historia */
@@ -12,13 +15,26 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id_proyecto')->textInput() ?>
+    <?= $form->field($model, 'id_proyecto')->dropDownList(
+        ArrayHelper::map(Proyecto::find()->all(),'id_proyecto','nombre'),
+        ['prompt'=>'Seleccionar proyecto']
+    ) ?>
 
     <?= $form->field($model, 'nombre')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'descripcion')->textInput() ?>
 
-    <?= $form->field($model, 'fh_creacion')->textInput() ?>
+    <?= $form->field($model, 'fh_creacion')->widget(
+    DatePicker::className(), [
+        // inline too, not bad
+         'inline' => false,
+         // modify template for custom rendering
+        //'template' => '<div class="well well-sm" style="background-color: #fff; width:250px">{input}</div>',
+        'clientOptions' => [
+            'autoclose' => true,
+            'format' => 'yyyy-mm-dd'
+        ]
+    ]);?>
 
     <?= $form->field($model, 'prioridad')->textInput() ?>
 

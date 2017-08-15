@@ -4,13 +4,13 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model frontend\models\Historia */
+/* @var $model frontend\models\AsignacionSprint */
 
-$this->title = 'Create Historia';
-$this->params['breadcrumbs'][] = ['label' => 'Historias', 'url' => ['index']];
+$this->title = 'Create Asignacion Sprint';
+$this->params['breadcrumbs'][] = ['label' => 'Asignacion Sprints', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="historia-create">
+<div class="asignacion-sprint-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
