@@ -51,9 +51,9 @@ use dosamigos\datepicker\DatePicker;
         ]
     ]);?>
 
-    <?= $form->field($model, 'definicion_hecho')->textInput() ?>
+    <?= $form->field($model, 'definicion_hecho')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'nota')->textInput() ?>
+    <?= $form->field($model, 'nota')->textarea(['rows' => 6]) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

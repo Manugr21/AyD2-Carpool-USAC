@@ -33,8 +33,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'fh_inicio',
             'fh_fin',
             'fh_creacion',
-            'definicion_hecho',
-            'nota',
+            'definicion_hecho:ntext',
+            'nota:ntext',
         ],
     ]) ?>
 

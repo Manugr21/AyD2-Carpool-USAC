@@ -12,8 +12,8 @@ use Yii;
  * @property string $fh_inicio
  * @property string $fh_fin
  * @property string $fh_creacion
- * @property resource $definicion_hecho
- * @property resource $nota
+ * @property string $definicion_hecho
+ * @property string $nota
  *
  * @property AsignacionSprint[] $asignacionSprints
  * @property Historia[] $idHistorias
