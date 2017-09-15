@@ -5,12 +5,12 @@ namespace frontend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use frontend\models\AsignacionSprint;
+use frontend\models\Historia;
 
 /**
- * AsignacionSprintSearch represents the model behind the search form about `frontend\models\AsignacionSprint`.
+ * AvanceSearch represents the model behind the search form about `frontend\models\Historia`.
  */
-class AsignacionSprintSearch extends AsignacionSprint
+class AvanceSearch extends Historia
 {
     /**
      * @inheritdoc
@@ -18,8 +18,9 @@ class AsignacionSprintSearch extends AsignacionSprint
     public function rules()
     {
         return [
-            [['id_sprint', 'id_historia'], 'integer'],
-            [['responsable'], 'safe'],
+            [['id_historia', 'id_proyecto', 'prioridad', 'dificultad'], 'integer'],
+            [['nombre', 'descripcion', 'fh_creacion'], 'safe'],
+            [['avance'], 'number'],
         ];
     }
 
@@ -41,7 +42,7 @@ class AsignacionSprintSearch extends AsignacionSprint
      */
     public function search($params)
     {
-        $query = AsignacionSprint::find();
+        $query = Historia::find();
 
         // add conditions that should always apply here
 
@@ -59,11 +60,16 @@ class AsignacionSprintSearch extends AsignacionSprint
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'id_sprint' => $this->id_sprint,
             'id_historia' => $this->id_historia,
+            'id_proyecto' => $this->id_proyecto,
+            'fh_creacion' => $this->fh_creacion,
+            'prioridad' => $this->prioridad,
+            'dificultad' => $this->dificultad,
+            'avance' => $this->avance,
         ]);
 
-        $query->andFilterWhere(['like', 'responsable', $this->responsable]);
+        $query->andFilterWhere(['like', 'nombre', $this->nombre])
+            ->andFilterWhere(['like', 'descripcion', $this->descripcion]);
 
         return $dataProvider;
     }

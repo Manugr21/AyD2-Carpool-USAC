@@ -75,4 +75,22 @@ class AsignacionSprint extends \yii\db\ActiveRecord
     {
         return $this->hasOne(EquipoTrabajo::className(), ['username' => 'responsable']);
     }
+
+    public function enough_space($id_sprint, $id_historia){
+        $sql = "SELECT velocidad FROM sprint_backlog WHERE id_sprint = ".$id_sprint;
+        $velocidad = intval(Yii::$app->db->createCommand($sql)->queryScalar());
+
+        $sql = "SELECT SUM(dificultad) FROM historia h, asignacion_sprint a WHERE h.id_historia = a.id_historia and a.id_sprint = ".$id_sprint;
+        $asignado = intval(Yii::$app->db->createCommand($sql)->queryScalar());
+
+        $sql = "SELECT dificultad FROM historia WHERE id_historia = ".$id_historia;
+        $duracion = intval(Yii::$app->db->createCommand($sql)->queryScalar());
+
+        file_put_contents("/tmp/prueba.txt","velocidad: ".$velocidad.", asignado: ".$asignado.", duracion: ".$duracion."\n");
+        if($velocidad >= $asignado + $duracion){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

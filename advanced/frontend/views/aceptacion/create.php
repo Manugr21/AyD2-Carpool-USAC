@@ -4,13 +4,13 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model frontend\models\AsignacionSprint */
+/* @var $model app\models\Aceptacion */
 
-$this->title = 'Create Asignacion Sprint';
-$this->params['breadcrumbs'][] = ['label' => 'Asignacion Sprints', 'url' => ['index']];
+$this->title = 'Create Aceptacion';
+$this->params['breadcrumbs'][] = ['label' => 'Aceptacions', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="asignacion-sprint-create">
+<div class="aceptacion-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

@@ -4,29 +4,34 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel frontend\models\AsignacionSprintSearch */
+/* @var $searchModel frontend\models\AvanceSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Asignacion Sprints';
+$this->title = 'Avance';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="asignacion-sprint-index">
+<div class="historia-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?= Html::a('Create Asignacion Sprint', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    <!--p>
+        <?= Html::a('Create Historia', ['create'], ['class' => 'btn btn-success']) ?>
+    </p-->
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id_sprint',
             'id_historia',
-            'responsable',
+            'id_proyecto',
+            'nombre',
+            'descripcion',
+            'fh_creacion',
+            // 'prioridad',
+            // 'dificultad',
+             'avance',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

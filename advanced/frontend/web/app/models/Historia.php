@@ -58,9 +58,9 @@ class Historia extends \yii\db\ActiveRecord
             'id_proyecto' => 'Id Proyecto',
             'nombre' => 'Nombre',
             'descripcion' => 'Descripcion',
-            'fh_creacion' => 'Fecha Creación',
+            'fh_creacion' => 'Fecha Creacion',
             'prioridad' => 'Prioridad',
-            'dificultad' => 'Estimado de puntos',
+            'dificultad' => 'Dificultad',
             'avance' => 'Avance',
         ];
     }

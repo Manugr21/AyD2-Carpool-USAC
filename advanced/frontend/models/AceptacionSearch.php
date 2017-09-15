@@ -5,12 +5,12 @@ namespace frontend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use frontend\models\AsignacionSprint;
+use app\models\Aceptacion;
 
 /**
- * AsignacionSprintSearch represents the model behind the search form about `frontend\models\AsignacionSprint`.
+ * AceptacionSearch represents the model behind the search form about `app\models\Aceptacion`.
  */
-class AsignacionSprintSearch extends AsignacionSprint
+class AceptacionSearch extends Aceptacion
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class AsignacionSprintSearch extends AsignacionSprint
     public function rules()
     {
         return [
-            [['id_sprint', 'id_historia'], 'integer'],
-            [['responsable'], 'safe'],
+            [['id_aceptacion', 'id_historia', 'hecho'], 'integer'],
+            [['descripcion'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class AsignacionSprintSearch extends AsignacionSprint
      */
     public function search($params)
     {
-        $query = AsignacionSprint::find();
+        $query = Aceptacion::find();
 
         // add conditions that should always apply here
 
@@ -59,11 +59,12 @@ class AsignacionSprintSearch extends AsignacionSprint
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'id_sprint' => $this->id_sprint,
+            'id_aceptacion' => $this->id_aceptacion,
             'id_historia' => $this->id_historia,
+            'hecho' => $this->hecho,
         ]);
 
-        $query->andFilterWhere(['like', 'responsable', $this->responsable]);
+        $query->andFilterWhere(['like', 'descripcion', $this->descripcion]);
 
         return $dataProvider;
     }

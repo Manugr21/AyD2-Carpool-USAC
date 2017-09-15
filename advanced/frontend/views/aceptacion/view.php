@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model frontend\models\AsignacionSprint */
+/* @var $model app\models\Aceptacion */
 
-$this->title = $model->id_sprint;
-$this->params['breadcrumbs'][] = ['label' => 'Asignacion Sprints', 'url' => ['index']];
+$this->title = $model->id_aceptacion;
+$this->params['breadcrumbs'][] = ['label' => 'Aceptacions', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="asignacion-sprint-view">
+<div class="aceptacion-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id_sprint' => $model->id_sprint, 'id_historia' => $model->id_historia], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id_sprint' => $model->id_sprint, 'id_historia' => $model->id_historia], [
+        <?= Html::a('Update', ['update', 'id' => $model->id_aceptacion], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id' => $model->id_aceptacion], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -28,9 +28,10 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id_sprint',
+            'id_aceptacion',
             'id_historia',
-            'responsable',
+            'descripcion',
+            'hecho',
         ],
     ]) ?>
 

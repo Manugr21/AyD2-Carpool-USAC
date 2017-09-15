@@ -65,9 +65,19 @@ class AsignacionSprintController extends Controller
     public function actionCreate()
     {
         $model = new AsignacionSprint();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id_sprint' => $model->id_sprint, 'id_historia' => $model->id_historia]);
+        
+        if ($model->load(Yii::$app->request->post())) {
+            if($model->enough_space($model->id_sprint, $model->id_historia)){
+                if($model->save()){
+                    return $this->redirect(['view', 'id_sprint' => $model->id_sprint, 'id_historia' => $model->id_historia]);
+                }
+            }else{
+                echo '<div class="site-error"> 
+                        <h1>Error</h1>
+                        <h3>No hay suficiente espacio en el sprint</h3> 
+                    </div>';
+            }
+            
         } else {
             return $this->render('create', [
                 'model' => $model,
