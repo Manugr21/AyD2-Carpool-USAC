@@ -86,7 +86,7 @@ class AsignacionSprint extends \yii\db\ActiveRecord
         $sql = "SELECT dificultad FROM historia WHERE id_historia = ".$id_historia;
         $duracion = intval(Yii::$app->db->createCommand($sql)->queryScalar());
 
-        file_put_contents("/tmp/prueba.txt","velocidad: ".$velocidad.", asignado: ".$asignado.", duracion: ".$duracion."\n");
+        //file_put_contents("/tmp/prueba.txt","velocidad: ".$velocidad.", asignado: ".$asignado.", duracion: ".$duracion."\n");
         if($velocidad >= $asignado + $duracion){
             return true;
         }else{
