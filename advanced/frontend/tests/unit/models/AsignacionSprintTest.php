@@ -1,11 +1,20 @@
-class AsignacionSprintTest extends CDbTestCase
-{
+<?php
+namespace frontend\tests\unit\models;
 
-  public function testApprove()
-  {
-      $model = AsignacionSprint::model()->findAll();
-      $this->assertNotNull($model,
-            'AsignacionSprint obtenidos de la base de datos');
-  }
+use common\fixtures\UserFixture;
+use frontend\models\AsignacionSprint;
+
+class AsignacionSprintTest extends \Codeception\Test\Unit
+{
+    /**
+     * @var \frontend\tests\UnitTester
+     */
+
+    public function test_enough_space()
+    {
+        $model = new AsignacionSprint;
+        #enough_space(id_sprint,id_historia)
+        $this->assertTrue($model->enough_space(3,2));
+      }
 
 }

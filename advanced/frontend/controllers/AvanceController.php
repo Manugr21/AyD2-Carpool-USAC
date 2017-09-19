@@ -90,9 +90,9 @@ class AvanceController extends Controller
                     return $this->redirect(['view', 'id' => $model->id_historia]);
                 }
             }else{
-                echo '<div class="site-error"> 
+                echo '<div class="site-error">
                         <h1>Error</h1>
-                        <h3>El avance debe de estar dentro de un rango de 0%-100%</h3> 
+                        <h3>El avance debe de estar dentro de un rango de 0%-100%</h3>
                     </div>';
 
                 //include_once("/var/www/html/scrum-manager/advanced/frontend/views/site/error2.php");
@@ -104,6 +104,11 @@ class AvanceController extends Controller
                 'model' => $model,
             ]);
         }
+    }
+
+    public function verificarPorcentajeAvance($avance)
+    {
+      return $avance < 101 && $avance >= 0;
     }
 
     /**
