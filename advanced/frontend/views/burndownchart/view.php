@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use frontend\controllers\BurndownchartController;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\SprintBacklog */
@@ -119,10 +120,47 @@ Highcharts.chart('container', {
 ]
 
     },
-    /*{
+    {
         name: 'Actual',
-        data: [2, 2, 7, 5, 9, 0, 12, 4]
-    }*/]
+        data: [
+
+
+
+          <?php
+
+          $id_sprint = $model->id_sprint;
+          $sql = "SELECT his.dificultad, his.fh_fin FROM asignacion_sprint asp, historia his where asp.id_historia = his.id_historia and his.terminado = 1 and asp.id_sprint = ".$id_sprint;
+
+          $controller = new BurndownchartController('','','');
+          $dificultad = $controller->getDificultades($sql);
+          $fecha1 = $model->fh_inicio;
+          $fecha2 = $model->fh_fin;
+          $cont = $model->velocidad;
+          echo $cont .',';
+          for($i=$fecha1;$i<=$fecha2;$i = date("Y-m-d", strtotime($i ."+ 1 days"))){
+
+            foreach($dificultad as $item){
+
+              if($item['fh_fin'] == $i ){
+                $cont = $cont - $item['dificultad'];
+              }
+          ?>
+
+           [<?php echo $cont; ?>],
+
+
+
+
+           <?php
+
+            }
+           } ?>
+
+
+
+
+        ]
+    }]
 
 	});
 				</script>

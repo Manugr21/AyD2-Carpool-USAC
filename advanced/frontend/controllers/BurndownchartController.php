@@ -48,4 +48,8 @@ class BurndownchartController extends \yii\web\Controller
       }
     }
 
+    public function getDificultades($sql){
+      return Yii::$app->db->createCommand($sql)->queryAll();
+    }
+
 }
