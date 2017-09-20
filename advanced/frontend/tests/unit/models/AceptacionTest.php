@@ -14,7 +14,7 @@ class AceptacionTest extends \Codeception\Test\Unit
     {
         $model = new Aceptacion;
         $model->setAttributes(array(
-            'id_aceptacion' => '1',
+            'id_aceptacion' => '23',
             'id_historia' => '1',
             'descripcion' => 'Aceptacion prueba',
             'hecho' => '1',
