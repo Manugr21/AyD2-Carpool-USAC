@@ -56,7 +56,7 @@ AppAsset::register($this);
        ['label' => 'Control de avance', 'url' => ['#'],
         'items' => [
           ['label' => 'Ingresar control de avance', 'url' => ['/avance/index']],
-          ['label' => 'Burndown chart', 'url' => ['#']],
+          ['label' => 'Burndown chart', 'url' => ['/burndownchart/index']],
         ]
       ],
     ];

@@ -36,6 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'prioridad',
             'dificultad',
             'avance',
+            'fh_fin',
         ],
     ]) ?>
 

@@ -19,7 +19,7 @@ class AvanceSearch extends Historia
     {
         return [
             [['id_historia', 'id_proyecto', 'prioridad', 'dificultad'], 'integer'],
-            [['nombre', 'descripcion', 'fh_creacion'], 'safe'],
+            [['nombre', 'descripcion', 'fh_creacion','fh_fin' ], 'safe'],
             [['avance'], 'number'],
         ];
     }
@@ -66,6 +66,7 @@ class AvanceSearch extends Historia
             'prioridad' => $this->prioridad,
             'dificultad' => $this->dificultad,
             'avance' => $this->avance,
+            'fh_fin' => $this->fh_fin,
         ]);
 
         $query->andFilterWhere(['like', 'nombre', $this->nombre])

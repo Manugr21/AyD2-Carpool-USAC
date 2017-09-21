@@ -41,7 +41,7 @@ class Historia extends \yii\db\ActiveRecord
             [['id_proyecto', 'nombre'], 'required'],
             [['id_proyecto', 'prioridad', 'dificultad'], 'integer'],
             [['descripcion'], 'string'],
-            [['fh_creacion'], 'safe'],
+            [['fh_creacion','fh_fin'], 'safe'],
             [['avance'], 'number'],
             [['nombre'], 'string', 'max' => 25],
             [['id_proyecto'], 'exist', 'skipOnError' => true, 'targetClass' => Proyecto::className(), 'targetAttribute' => ['id_proyecto' => 'id_proyecto']],
@@ -62,6 +62,7 @@ class Historia extends \yii\db\ActiveRecord
             'prioridad' => 'Prioridad',
             'dificultad' => 'Estimado de puntos',
             'avance' => 'Avance',
+            'fh_fin' => 'Fecha Fin',
         ];
     }
 
