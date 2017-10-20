@@ -43,6 +43,7 @@ AppAsset::register($this);
            ['label' => 'Eliminar', 'url' => ['#']],
            ['label' => 'Modificar', 'url' => ['#']],
            ['label' => 'Backlog', 'url' => ['/historia/index']],
+           ['label' => 'Criterios de Aceptación', 'url' => ['/aceptacion/index']],
          ]
         ],
         ['label' => 'Sprint Backlog', 'url' => ['/sprint-backlog/index'],
@@ -54,8 +55,8 @@ AppAsset::register($this);
        ],
        ['label' => 'Control de avance', 'url' => ['#'],
         'items' => [
-          ['label' => 'Ingresar control de avance', 'url' => ['#']],
-          ['label' => 'Burndown chart', 'url' => ['#']],
+          ['label' => 'Ingresar control de avance', 'url' => ['/avance/index']],
+          ['label' => 'Burndown chart', 'url' => ['/burndownchart/index']],
         ]
       ],
     ];

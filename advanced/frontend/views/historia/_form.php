@@ -40,9 +40,14 @@ use frontend\models\Proyecto;
 
     <?= $form->field($model, 'dificultad')->textInput() ?>
 
-    <?= $form->field($model, 'avance')->textInput(['maxlength' => true]) ?>
+    <!--?= $form->field($model, 'avance')->textInput(['maxlength' => true]) ?-->
+    
+    <!--Esto es para pasar parametros-->
+    <!--?= //Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?-->
 
     <div class="form-group">
+        <?= Html::a('Asignar Historias', ['/aceptacion/index'], ['class'=>'btn btn-primary']) ?>
+
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
