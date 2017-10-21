@@ -37,11 +37,10 @@ AppAsset::register($this);
     ]);
     $menuItems = [
         ['label' => 'Dashboard', 'url' => ['/site/index']],
-        ['label' => 'Proyectos', 'url' => ['#'],
+        ['label' => 'Proyectos', 'url' => ['/proyecto/index'],
          'items' => [
-           ['label' => 'Crear', 'url' => ['#']],
-           ['label' => 'Eliminar', 'url' => ['#']],
-           ['label' => 'Modificar', 'url' => ['#']],
+           ['label' => 'Lista', 'url' => ['/proyecto/index']],
+           ['label' => 'Crear', 'url' => ['/proyecto/create']],
            ['label' => 'Backlog', 'url' => ['/historia/index']],
            ['label' => 'Criterios de Aceptación', 'url' => ['/aceptacion/index']],
          ]
