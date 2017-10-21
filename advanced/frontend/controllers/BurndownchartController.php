@@ -13,6 +13,10 @@ class BurndownchartController extends \yii\web\Controller
 {
     public function actionIndex()
     {
+        if (Yii::$app->user->isGuest){
+          $this->redirect(Yii::$app->urlManager->createUrl(['site/login']));
+        }
+
       $searchModel = new SprintBacklogSearch();
       $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -25,6 +29,9 @@ class BurndownchartController extends \yii\web\Controller
 
     public function actionView($id)
     {
+        if (Yii::$app->user->isGuest){
+          $this->redirect(Yii::$app->urlManager->createUrl(['site/login']));
+        }
 
         return $this->render('view', [
             'model' => $this->findModel($id),

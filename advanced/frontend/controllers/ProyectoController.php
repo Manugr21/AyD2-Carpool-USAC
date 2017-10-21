@@ -35,6 +35,10 @@ class ProyectoController extends Controller
      */
     public function actionIndex()
     {
+        if (Yii::$app->user->isGuest){
+          $this->redirect(Yii::$app->urlManager->createUrl(['site/login']));
+        }
+
         $dataProvider = new ActiveDataProvider([
             'query' => Proyecto::find(),
         ]);
@@ -51,6 +55,10 @@ class ProyectoController extends Controller
      */
     public function actionView($id)
     {
+        if (Yii::$app->user->isGuest){
+          $this->redirect(Yii::$app->urlManager->createUrl(['site/login']));
+        }
+
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -63,6 +71,10 @@ class ProyectoController extends Controller
      */
     public function actionCreate()
     {
+        if (Yii::$app->user->isGuest){
+          $this->redirect(Yii::$app->urlManager->createUrl(['site/login']));
+        }
+
         $model = new Proyecto();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -82,6 +94,10 @@ class ProyectoController extends Controller
      */
     public function actionUpdate($id)
     {
+        if (Yii::$app->user->isGuest){
+          $this->redirect(Yii::$app->urlManager->createUrl(['site/login']));
+        }
+
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -101,6 +117,10 @@ class ProyectoController extends Controller
      */
     public function actionDelete($id)
     {
+        if (Yii::$app->user->isGuest){
+          $this->redirect(Yii::$app->urlManager->createUrl(['site/login']));
+        }
+
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);

@@ -35,6 +35,10 @@ class AvanceController extends Controller
      */
     public function actionIndex()
     {
+        if (Yii::$app->user->isGuest){
+          $this->redirect(Yii::$app->urlManager->createUrl(['site/login']));
+        }
+
         $searchModel = new AvanceSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -51,6 +55,10 @@ class AvanceController extends Controller
      */
     public function actionView($id)
     {
+        if (Yii::$app->user->isGuest){
+          $this->redirect(Yii::$app->urlManager->createUrl(['site/login']));
+        }
+
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -63,6 +71,10 @@ class AvanceController extends Controller
      */
     public function actionCreate()
     {
+        if (Yii::$app->user->isGuest){
+          $this->redirect(Yii::$app->urlManager->createUrl(['site/login']));
+        }
+
         $model = new Historia();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -82,6 +94,10 @@ class AvanceController extends Controller
      */
     public function actionUpdate($id)
     {
+        if (Yii::$app->user->isGuest){
+          $this->redirect(Yii::$app->urlManager->createUrl(['site/login']));
+        }
+
         $model = $this->findModel($id);
         //file_put_contents("/tmp/prueba2.txt","avance: ".$model->avance."\n");
         if ($model->load(Yii::$app->request->post())) {
@@ -119,6 +135,10 @@ class AvanceController extends Controller
      */
     public function actionDelete($id)
     {
+        if (Yii::$app->user->isGuest){
+          $this->redirect(Yii::$app->urlManager->createUrl(['site/login']));
+        }
+
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);

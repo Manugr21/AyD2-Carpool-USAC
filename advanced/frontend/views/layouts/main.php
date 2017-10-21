@@ -35,34 +35,36 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
-    $menuItems = [
-        ['label' => 'Dashboard', 'url' => ['/site/index']],
-        ['label' => 'Proyectos', 'url' => ['/proyecto/index'],
-         'items' => [
-           ['label' => 'Lista', 'url' => ['/proyecto/index']],
-           ['label' => 'Crear', 'url' => ['/proyecto/create']],
-           ['label' => 'Backlog', 'url' => ['/historia/index']],
-           ['label' => 'Criterios de Aceptación', 'url' => ['/aceptacion/index']],
-         ]
-        ],
-        ['label' => 'Sprint Backlog', 'url' => ['/sprint-backlog/index'],
-         'items' => [
-           ['label' => 'Lista', 'url' => ['/sprint-backlog/index']],
-           ['label' => 'Crear', 'url' => ['/sprint-backlog/create']],
-           ['label' => 'Asignar historias de usuario', 'url' => ['/asignacion-sprint/index']],
-         ]
-       ],
-       ['label' => 'Control de avance', 'url' => ['#'],
-        'items' => [
-          ['label' => 'Ingresar control de avance', 'url' => ['/avance/index']],
-          ['label' => 'Burndown chart', 'url' => ['/burndownchart/index']],
-        ]
-      ],
-    ];
+
+
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {
+      $menuItems = [
+          ['label' => 'Dashboard', 'url' => ['/site/index']],
+          ['label' => 'Proyectos', 'url' => ['/proyecto/index'],
+           'items' => [
+             ['label' => 'Lista', 'url' => ['/proyecto/index']],
+             ['label' => 'Crear', 'url' => ['/proyecto/create']],
+             ['label' => 'Backlog', 'url' => ['/historia/index']],
+             ['label' => 'Criterios de Aceptación', 'url' => ['/aceptacion/index']],
+           ]
+          ],
+          ['label' => 'Sprint Backlog', 'url' => ['/sprint-backlog/index'],
+           'items' => [
+             ['label' => 'Lista', 'url' => ['/sprint-backlog/index']],
+             ['label' => 'Crear', 'url' => ['/sprint-backlog/create']],
+             ['label' => 'Asignar historias de usuario', 'url' => ['/asignacion-sprint/index']],
+           ]
+         ],
+         ['label' => 'Control de avance', 'url' => ['#'],
+          'items' => [
+            ['label' => 'Ingresar control de avance', 'url' => ['/avance/index']],
+            ['label' => 'Burndown chart', 'url' => ['/burndownchart/index']],
+          ]
+        ],
+      ];
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(

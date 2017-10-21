@@ -35,6 +35,10 @@ class AsignacionSprintController extends Controller
      */
     public function actionIndex()
     {
+        if (Yii::$app->user->isGuest){
+          $this->redirect(Yii::$app->urlManager->createUrl(['site/login']));
+        }
+
         $searchModel = new AsignacionSprintSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -52,6 +56,10 @@ class AsignacionSprintController extends Controller
      */
     public function actionView($id_sprint, $id_historia)
     {
+        if (Yii::$app->user->isGuest){
+          $this->redirect(Yii::$app->urlManager->createUrl(['site/login']));
+        }
+
         return $this->render('view', [
             'model' => $this->findModel($id_sprint, $id_historia),
         ]);
@@ -64,20 +72,24 @@ class AsignacionSprintController extends Controller
      */
     public function actionCreate()
     {
+        if (Yii::$app->user->isGuest){
+          $this->redirect(Yii::$app->urlManager->createUrl(['site/login']));
+        }
+
         $model = new AsignacionSprint();
-        
+
         if ($model->load(Yii::$app->request->post())) {
             if($model->enough_space($model->id_sprint, $model->id_historia)){
                 if($model->save()){
                     return $this->redirect(['view', 'id_sprint' => $model->id_sprint, 'id_historia' => $model->id_historia]);
                 }
             }else{
-                echo '<div class="site-error"> 
+                echo '<div class="site-error">
                         <h1>Error</h1>
-                        <h3>No hay suficiente espacio en el sprint</h3> 
+                        <h3>No hay suficiente espacio en el sprint</h3>
                     </div>';
             }
-            
+
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -94,6 +106,10 @@ class AsignacionSprintController extends Controller
      */
     public function actionUpdate($id_sprint, $id_historia)
     {
+        if (Yii::$app->user->isGuest){
+          $this->redirect(Yii::$app->urlManager->createUrl(['site/login']));
+        }
+
         $model = $this->findModel($id_sprint, $id_historia);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -114,6 +130,10 @@ class AsignacionSprintController extends Controller
      */
     public function actionDelete($id_sprint, $id_historia)
     {
+        if (Yii::$app->user->isGuest){
+          $this->redirect(Yii::$app->urlManager->createUrl(['site/login']));
+        }
+
         $this->findModel($id_sprint, $id_historia)->delete();
 
         return $this->redirect(['index']);

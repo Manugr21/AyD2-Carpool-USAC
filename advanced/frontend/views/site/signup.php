@@ -6,6 +6,8 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use yii\helpers\ArrayHelper;
+use frontend\models\Empresa;
 
 $this->title = 'Signup';
 $this->params['breadcrumbs'][] = $this->title;
@@ -22,6 +24,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
 
                 <?= $form->field($model, 'email') ?>
+
+                <?= $form->field($model, 'id_empresa')->dropDownList(
+                    ArrayHelper::map(Empresa::find()->all(),'id_empresa','nombre'),
+                    ['prompt'=>'Seleccionar empresa']
+                ) ?>
 
                 <?= $form->field($model, 'password')->passwordInput() ?>
 
