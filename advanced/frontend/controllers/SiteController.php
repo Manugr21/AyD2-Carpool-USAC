@@ -75,7 +75,30 @@ class SiteController extends Controller
         if (Yii::$app->user->isGuest){
           $this->redirect(Yii::$app->urlManager->createUrl(['site/login']));
         }
-        return $this->render('index');
+        $searchModel = new SprintBacklogSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    public function actionView($id)
+    {
+
+        return $this->render('view', [
+            'model' => $this->findModel($id),
+        ]);
+    }
+
+    protected function findModel($id)
+    {
+        if (($model = SprintBacklog::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
     }
 
     /**
