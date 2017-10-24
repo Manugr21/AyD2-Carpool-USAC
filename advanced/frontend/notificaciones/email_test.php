@@ -11,3 +11,4 @@ final class EmailTest extends TestCase
         $this->assertIsTrue(send_email());
     }
 }
+?>
