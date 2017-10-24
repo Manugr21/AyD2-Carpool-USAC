@@ -3,9 +3,9 @@ return [
     'components' => [
         'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=localhost;dbname=proyecto_scrum',
+            'dsn' => 'mysql:host=localhost;dbname=proyecto_scrum2',
             'username' => 'root',
-            'password' => 'PasswordMysql123',
+            'password' => 'superuser123',
             'charset' => 'utf8',
         ],
         'mailer' => [
