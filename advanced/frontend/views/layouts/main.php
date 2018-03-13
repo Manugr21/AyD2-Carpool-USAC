@@ -29,7 +29,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'Scrum Manager',
+        'brandLabel' => 'Carpool USAC',
         'brandUrl' => ['/site/index'],
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -42,16 +42,38 @@ AppAsset::register($this);
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {
       $menuItems = [
-          ['label' => 'Dashboard', 'url' => ['/site/index']],
-          ['label' => 'Proyectos', 'url' => ['/proyecto/index'],
+          //['label' => 'Dashboard', 'url' => ['/site/index']],
+          ['label' => 'Usuarios', 'url' => ['/usuario/index'],
            'items' => [
-             ['label' => 'Lista', 'url' => ['/proyecto/index']],
-             ['label' => 'Crear', 'url' => ['/proyecto/create']],
-             ['label' => 'Backlog', 'url' => ['/historia/index']],
-             ['label' => 'Criterios de Aceptación', 'url' => ['/aceptacion/index']],
+             ['label' => 'Lista', 'url' => ['/usuario/index']],
+             ['label' => 'Crear', 'url' => ['/usuario/create']],
            ]
           ],
-          ['label' => 'Sprint Backlog', 'url' => ['/sprint-backlog/index'],
+          ['label' => 'Puntos de abordaje', 'url' => ['/punto-abordaje/index'],
+           'items' => [
+             ['label' => 'Lista', 'url' => ['/punto-abordaje/index']],
+             ['label' => 'Crear', 'url' => ['/punto-abordaje/create']],
+           ]
+          ],
+          ['label' => 'Viajes', 'url' => ['/viaje/index'],
+           'items' => [
+             ['label' => 'Lista', 'url' => ['/viaje/index']],
+             ['label' => 'Crear', 'url' => ['/viaje/create']],
+           ]
+          ],
+          ['label' => 'Asignación de puntos de abordaje', 'url' => ['/puntos-viaje/index'],
+           'items' => [
+             ['label' => 'Lista', 'url' => ['/puntos-viaje/index']],
+             ['label' => 'Asignar', 'url' => ['/puntos-viaje/create']],
+           ]
+          ],
+          ['label' => 'Abordaje de pasajeros', 'url' => ['/abordaje-pasajero/index'],
+           'items' => [
+             ['label' => 'Lista', 'url' => ['/abordaje-pasajero/index']],
+             ['label' => 'Asignar', 'url' => ['/abordaje-pasajero/create']],
+           ]
+          ],
+          /*['label' => 'Sprint Backlog', 'url' => ['/sprint-backlog/index'],
            'items' => [
              ['label' => 'Lista', 'url' => ['/sprint-backlog/index']],
              ['label' => 'Crear', 'url' => ['/sprint-backlog/create']],
@@ -64,6 +86,7 @@ AppAsset::register($this);
             ['label' => 'Burndown chart', 'url' => ['/burndownchart/index']],
           ]
         ],
+        */
       ];
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
@@ -92,9 +115,10 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; Scrum Manager <?= date('Y') ?></p>
-
+        <p class="pull-left">&copy; Carpool USAC <?= date('Y') ?></p>
+<!--
         <p class="pull-right"><?= Yii::powered() ?></p>
+      -->
     </div>
 </footer>
 

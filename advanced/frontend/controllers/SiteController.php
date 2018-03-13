@@ -12,8 +12,8 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
-use frontend\models\SprintBacklog;
-use frontend\models\SprintBacklogSearch;
+use frontend\models\VIAJE;
+use frontend\models\VIAJESearch2;
 
 /**
  * Site controller
@@ -77,7 +77,7 @@ class SiteController extends Controller
         if (Yii::$app->user->isGuest){
           $this->redirect(Yii::$app->urlManager->createUrl(['site/login']));
         }
-        $searchModel = new SprintBacklogSearch();
+        $searchModel = new VIAJESearch2();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [

@@ -25,11 +25,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?= $form->field($model, 'email') ?>
 
-                <?= $form->field($model, 'id_empresa')->dropDownList(
-                    ArrayHelper::map(Empresa::find()->all(),'id_empresa','nombre'),
-                    ['prompt'=>'Seleccionar empresa']
-                ) ?>
-
                 <?= $form->field($model, 'password')->passwordInput() ?>
 
                 <div class="form-group">
